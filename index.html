@@ -1,11 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Soulayman — Junior Full Stack Web Developer. Building high-impact digital experiences under the 7X brand." />
+  <title>7X | Soulayman — Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <!-- Font Awesome 6 Free -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <h1><code>SOULAYMAN ID BAHA</code></h1>
+
+  <!-- ═══════════════════════ HEADER ═══════════════════════ -->
+  <header id="header" class="header">
+    <nav class="nav container">
+      <a href="#hero" class="nav__logo" aria-label="7X Home">
+        <img src="images/logo/7X-LOGO-V5-W.png" alt="7X Logo" class="logo-img" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#stack" class="nav__link"><i class="fa-solid fa-layer-group"></i> Stack</a></li>
+        <li><a href="#projects" class="nav__link"><i class="fa-solid fa-code-branch"></i> Projects</a></li>
+        <li><a href="#contact" class="nav__link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--outline nav__cta">
+        <i class="fa-solid fa-bolt"></i> Hire Me
+      </a>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <section id="hero" class="hero">
+      <canvas id="particleCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+
+      <div class="container hero__layout">
+
+        <!-- LEFT COLUMN -->
+        <div class="hero__left">
+
+          <!-- Status Badge -->
+          <div class="hero__badge reveal">
+            <span class="hero__badge-dot"></span>
+            <span>Open to Work &amp; Freelance</span>
+          </div>
+
+          <!-- Greeting -->
+          <p class="hero__greeting reveal">Hello World, I'm</p>
+
+          <!-- Animated Name -->
+          <h1 class="hero__name reveal">
+            <span class="hero__name-line" id="typedName"></span><span class="hero__cursor" aria-hidden="true">|</span>
+          </h1>
+
+          <!-- Role -->
+          <p class="hero__role reveal">
+            <i class="fa-solid fa-code"></i>
+            Junior Full Stack Web Developer
+          </p>
+
+          <!-- Description -->
+          <p class="hero__desc reveal">
+            Crafting pixel-perfect, high-performance web experiences
+            under the <strong class="brand-accent">7X</strong> brand.
+            From backend logic to polished UI — end to end.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="hero__actions reveal">
+            <a href="#projects" class="btn btn--primary">
+              <i class="fa-solid fa-rocket"></i> View Projects
+            </a>
+            <a href="#contact" class="btn btn--ghost">
+              <i class="fa-regular fa-comment-dots"></i> Let's Talk
+            </a>
+            <a href="#" class="btn btn--icon" aria-label="Download CV" title="Download CV">
+              <i class="fa-solid fa-file-arrow-down"></i>
+            </a>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="hero__stats reveal">
+            <div class="hero__stat">
+              <span class="hero__stat-num">2+</span>
+              <span class="hero__stat-label">Projects<br>Launched</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-num">6+</span>
+              <span class="hero__stat-label">Technologies<br>Mastered</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-num">100%</span>
+              <span class="hero__stat-label">Passion &amp;<br>Precision</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN — Visual Panel -->
+        <div class="hero__right reveal">
+          <div class="hero__visual-card">
+
+            <!-- Glowing Logo -->
+            <div class="hero__visual-logo">
+              <img src="images/logo/7X-LOGO-V5-W.png" alt="7X Brand Logo" class="hero__visual-logo-img" />
+              <div class="hero__visual-logo-glow" aria-hidden="true"></div>
+            </div>
+
+            <!-- Fake Code Snippet -->
+            <div class="hero__code-block" aria-hidden="true">
+              <div class="hero__code-header">
+                <span class="code-dot red"></span>
+                <span class="code-dot yellow"></span>
+                <span class="code-dot green"></span>
+                <span class="code-filename">soulayman.js</span>
+              </div>
+              <pre class="hero__code-body"><code><span class="c-kw">const</span> <span class="c-var">dev</span> = {
+  <span class="c-prop">name</span>: <span class="c-str">"SOULAYMAN ID BAHA"</span>,
+  <span class="c-prop">brand</span>: <span class="c-str">"7X"</span>,
+  <span class="c-prop">stack</span>: [<span class="c-str">"PHP"</span>, <span class="c-str">"JS"</span>, <span class="c-str">"MySQL"</span>],
+  <span class="c-prop">status</span>: <span class="c-str">"available"</span> <span class="c-cmt">✓</span>,
+  <span class="c-fn">build</span>: () <span class="c-kw">=&gt;</span> <span class="c-str">"🚀 Launching..."</span>
+};</code></pre>
+            </div>
+
+            <!-- Tech Pills -->
+            <div class="hero__tech-pills">
+              <span class="hero__pill"><i class="fa-brands fa-html5"></i></span>
+              <span class="hero__pill"><i class="fa-brands fa-css3-alt"></i></span>
+              <span class="hero__pill"><i class="fa-brands fa-js"></i></span>
+              <span class="hero__pill"><i class="fa-brands fa-php"></i></span>
+              <span class="hero__pill"><i class="fa-solid fa-database"></i></span>
+              <span class="hero__pill"><i class="fa-brands fa-git-alt"></i></span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════ TECH STACK ═══════════════════════ -->
+    <section id="stack" class="stack section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag"><i class="fa-solid fa-microchip"></i> Technologies</span>
+          <h2 class="section__title">Tech <span class="gradient-text">Stack</span></h2>
+          <p class="section__desc">Tools I use to turn ideas into production-ready products.</p>
+        </div>
+
+        <div class="ticker-wrapper" aria-label="Tech stack ticker">
+          <div class="ticker">
+            <div class="ticker__track" id="tickerTrack">
+              <span class="badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+              <span class="badge"><i class="fa-solid fa-wind"></i> Tailwind V4</span>
+              <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="badge"><i class="fa-brands fa-php"></i> PHP OOP</span>
+              <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
+              <span class="badge"><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span class="badge"><i class="fa-solid fa-plug"></i> REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-grid reveal">
+          <div class="skill-card">
+            <div class="skill-card__icon"><i class="fa-brands fa-html5"></i></div>
+            <h3 class="skill-card__name">HTML5</h3>
+            <p class="skill-card__desc">Semantic, accessible markup with SEO-first principles.</p>
+            <div class="skill-bar">
+              <div class="skill-bar__fill" style="--pct:90%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon"><i class="fa-brands fa-css3-alt"></i></div>
+            <h3 class="skill-card__name">CSS3</h3>
+            <p class="skill-card__desc">Grid, Flexbox, animations &amp; modern design systems.</p>
+            <div class="skill-bar">
+              <div class="skill-bar__fill" style="--pct:88%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon"><i class="fa-solid fa-wind"></i></div>
+            <h3 class="skill-card__name">Tailwind V4</h3>
+            <p class="skill-card__desc">Utility-first CSS with the latest v4 engine &amp; JIT.</p>
+            <div class="skill-bar">
+              <div class="skill-bar__fill" style="--pct:82%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon"><i class="fa-brands fa-js"></i></div>
+            <h3 class="skill-card__name">JavaScript</h3>
+            <p class="skill-card__desc">ES2024+, DOM manipulation, async patterns &amp; APIs.</p>
+            <div class="skill-bar">
+              <div class="skill-bar__fill" style="--pct:80%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon"><i class="fa-brands fa-php"></i></div>
+            <h3 class="skill-card__name">PHP OOP</h3>
+            <p class="skill-card__desc">MVC architecture, OOP design patterns &amp; server logic.</p>
+            <div class="skill-bar">
+              <div class="skill-bar__fill" style="--pct:75%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon"><i class="fa-solid fa-database"></i></div>
+            <h3 class="skill-card__name">MySQL</h3>
+            <p class="skill-card__desc">Relational DB design, queries, indexing &amp; optimization.</p>
+            <div class="skill-bar">
+              <div class="skill-bar__fill" style="--pct:78%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
+    <section id="projects" class="projects section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag"><i class="fa-solid fa-diagram-project"></i> Work</span>
+          <h2 class="section__title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section__desc">Real products built with purpose, performance, and precision.</p>
+        </div>
+
+        <div class="showcase-grid">
+
+          <!-- ═══ Project 1: 7X Pharma ═══ -->
+          <article class="showcase-card reveal" id="proj-pharma">
+            <div class="showcase-card__visual">
+              <div class="showcase-card__glow" style="--hue: 220;"></div>
+              <div class="showcase-card__main-img">
+                <img src="images/7X-PHARMA-1.png" alt="7X Pharma POS" loading="lazy" />
+              </div>
+              <div class="showcase-card__float-img parallax-img" data-speed="0.05">
+                <img src="images/7X-PHARMA-inventory.png" alt="7X Pharma Inventory" loading="lazy" />
+              </div>
+            </div>
+
+            <div class="showcase-card__content">
+              <div class="showcase-card__meta">
+                <span class="project-num">01</span>
+                <span class="project-tag primary"><i class="fa-solid fa-capsules"></i> Healthcare</span>
+              </div>
+              <h3 class="showcase-card__title">7X Pharma <span class="gradient-text">Nexus</span></h3>
+              <p class="showcase-card__desc">A comprehensive pharmaceutical management platform designed for scale.
+                Features real-time inventory control, secure prescription workflows, and dynamic POS analytics
+                dashboards.</p>
+
+              <ul class="showcase-card__features">
+                <li><i class="fa-solid fa-check"></i> Point of Sale (POS) System</li>
+                <li><i class="fa-solid fa-check"></i> Inventory Expiry Tracking</li>
+                <li><i class="fa-solid fa-check"></i> Client Credit Management</li>
+              </ul>
+
+              <div class="showcase-card__tags">
+                <span class="tag"><i class="fa-brands fa-php"></i> PHP OOP</span>
+                <span class="tag"><i class="fa-solid fa-database"></i> MySQL</span>
+                <span class="tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+              </div>
+
+              <div class="showcase-card__actions">
+                <a href="#" class="btn btn--primary">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Preview
+                </a>
+                <a href="#" class="btn btn--ghost">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ═══ Project 2: 7X Hub ═══ -->
+          <article class="showcase-card showcase-card--reverse reveal" id="proj-hub">
+            <div class="showcase-card__visual">
+              <div class="showcase-card__glow" style="--hue: 270;"></div>
+              <div class="showcase-card__main-img">
+                <img src="images/7X-HUB-1.png" alt="7X Hub Blog" loading="lazy" />
+              </div>
+              <div class="showcase-card__float-img parallax-img" data-speed="0.05">
+                <img src="images/7X-HUB-DASHBOARD-1.png" alt="7X Hub Dashboard" loading="lazy" />
+              </div>
+            </div>
+
+            <div class="showcase-card__content">
+              <div class="showcase-card__meta">
+                <span class="project-num">02</span>
+                <span class="project-tag secondary"><i class="fa-solid fa-blog"></i> Blog Platform</span>
+              </div>
+              <h3 class="showcase-card__title">7X <span class="gradient-text">Hub</span></h3>
+              <p class="showcase-card__desc">A high-performance content management system with a custom MVC
+                architecture. Includes secure authentication, rich-text CRUD operations, and a comprehensive database
+                activity dashboard.</p>
+
+              <ul class="showcase-card__features">
+                <li><i class="fa-solid fa-check"></i> Custom MVC Architecture</li>
+                <li><i class="fa-solid fa-check"></i> Admin Analytics Dashboard</li>
+                <li><i class="fa-solid fa-check"></i> Database Activity Logging</li>
+              </ul>
+
+              <div class="showcase-card__tags">
+                <span class="tag"><i class="fa-brands fa-php"></i> PHP OOP</span>
+                <span class="tag"><i class="fa-solid fa-database"></i> MySQL</span>
+                <span class="tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+
+              </div>
+
+              <div class="showcase-card__actions">
+                <a href="http://localhost/7X_Hub_Blog/" class="btn btn--primary" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-play"></i> Live Demo
+                </a>
+                <a href="https://github.com/soulayman-7x/7X_Hub_Blog" target="_blank" class="btn btn--ghost">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ═══ CTA ═══ -->
+          <article class="showcase-cta reveal">
+            <div class="project-cta__inner">
+              <span class="project-cta__icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+              <h3>Building the next big thing...<br /><span class="gradient-text">Stay tuned.</span></h3>
+              <a href="#contact" class="btn btn--outline">
+                <i class="fa-solid fa-paper-plane"></i> Let's work together
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag"><i class="fa-solid fa-envelope-open-text"></i> Contact</span>
+          <h2 class="section__title">Let's <span class="gradient-text">Connect</span></h2>
+          <p class="section__desc">Have a project in mind? Let's build something great together.</p>
+        </div>
+
+        <div class="contact__wrapper reveal">
+          <div class="contact__info">
+            <div class="contact__item">
+              <span class="contact__item-icon"><i class="fa-solid fa-envelope"></i></span>
+              <div>
+                <p class="contact__item-label">Email</p>
+                <a href="mailto:soulaymanidbaha444@gmail.com" class="contact__item-value">soulaymanidbaha444@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact__item">
+              <span class="contact__item-icon"><i class="fa-brands fa-github"></i></span>
+              <div>
+                <p class="contact__item-label">GitHub</p>
+                <a href="https://github.com/soulayman-7x" target="_blank" rel="noopener"
+                  class="contact__item-value">github.com/soulayman-7x</a>
+              </div>
+            </div>
+            <div class="contact__item">
+              <span class="contact__item-icon"><i class="fa-solid fa-location-dot"></i></span>
+              <div>
+                <p class="contact__item-label">Location</p>
+                <span class="contact__item-value">Morocco 🇲🇦</span>
+              </div>
+            </div>
+            <div class="contact__availability">
+              <span class="availability-dot"></span>
+              <i class="fa-solid fa-circle-check" style="color:#22c55e;font-size:0.8rem;"></i>
+              Available for freelance &amp; collaborations
+            </div>
+          </div>
+
+          <form class="contact__form" id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="text" id="nameInput" class="form-input" placeholder=" " autocomplete="name" required />
+              <label for="nameInput" class="form-label"><i class="fa-solid fa-user"></i> Your Name</label>
+              <span class="form-border"></span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="emailInput" class="form-input" placeholder=" " autocomplete="email" required />
+              <label for="emailInput" class="form-label"><i class="fa-solid fa-at"></i> Email Address</label>
+              <span class="form-border"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" id="subjectInput" class="form-input" placeholder=" " required />
+              <label for="subjectInput" class="form-label"><i class="fa-solid fa-tag"></i> Subject</label>
+              <span class="form-border"></span>
+            </div>
+            <div class="form-group">
+              <textarea id="messageInput" class="form-input form-textarea" placeholder=" " rows="4" required></textarea>
+              <label for="messageInput" class="form-label"><i class="fa-solid fa-message"></i> Message</label>
+              <span class="form-border"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--magnetic" id="submitBtn">
+              <span class="btn__text">Send Message</span>
+              <i class="fa-solid fa-paper-plane btn__icon"></i>
+            </button>
+            <p class="form-success" id="formSuccess" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#hero" class="nav__logo footer__logo" aria-label="Back to top">
+        <img src="images/logo/7X-LOGO-V5-W.png" alt="7X Logo" class="logo-img" />
+      </a>
+      <p class="footer__copy">© 2026 Soulayman · 7X Brand. Crafted with <i class="fa-solid fa-heart"
+          style="color:#a855f7;"></i> &amp; precision.</p>
+      <div class="footer__socials">
+        <a href="https://github.com/soulayman-7x" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="www.linkedin.com/in/soulayman-id-baha-3559a8237" target="_blank" class="social-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="http://instagram.com/soulayman_7x/" target="_blank" class="social-link" aria-label="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════ BOTTOM NAV (Mobile) ═══════════════════════ -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="Mobile navigation">
+    <a href="#hero" class="bottom-nav__item active" data-section="hero">
+      <span class="bottom-nav__icon"><i class="fa-solid fa-house"></i></span>
+      <span class="bottom-nav__label">Home</span>
+    </a>
+    <a href="#stack" class="bottom-nav__item" data-section="stack">
+      <span class="bottom-nav__icon"><i class="fa-solid fa-layer-group"></i></span>
+      <span class="bottom-nav__label">Stack</span>
+    </a>
+    <a href="#projects" class="bottom-nav__item" data-section="projects">
+      <span class="bottom-nav__icon"><i class="fa-solid fa-code-branch"></i></span>
+      <span class="bottom-nav__label">Projects</span>
+    </a>
+    <a href="#contact" class="bottom-nav__item" data-section="contact">
+      <span class="bottom-nav__icon"><i class="fa-solid fa-paper-plane"></i></span>
+      <span class="bottom-nav__label">Contact</span>
+    </a>
+  </nav>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
