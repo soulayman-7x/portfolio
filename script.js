@@ -1,6 +1,4 @@
-/* ================================================================
-   7X Portfolio — Vanilla JS
-   ================================================================ */
+
 
 'use strict';
 
@@ -251,7 +249,7 @@ function initTypewriter() {
       if (charIdx === 0) {
         deleting = false;
         phraseIdx++;
-        // Always land on "SOULAYMAN 7X" (index 0 and 2)
+        // Always land on "SOULAYMAN" (index 0 and 2)
         if (phraseIdx >= PHRASES.length) phraseIdx = 0;
         setTimeout(tick, PAUSE_START);
         return;
