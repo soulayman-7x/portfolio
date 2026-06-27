@@ -311,18 +311,87 @@ function initShowcaseParallax() {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-
-      // Calculate translation based on mouse position relative to center
       const moveX = x * speed;
       const moveY = y * speed;
-
       floatImg.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
     });
 
     card.addEventListener('mouseleave', () => {
-      // Reset position with smooth transition
       floatImg.style.transform = 'translate(0, 0) scale(1)';
     });
   });
 }
 document.addEventListener('DOMContentLoaded', initShowcaseParallax);
+
+// ═══════════════════════ PROJECT IMAGE SLIDER ═══════════════════════
+function initProjectSliders() {
+  // Find all sliders on the page
+  const sliders = document.querySelectorAll('.proj-slider');
+  
+  sliders.forEach(slider => {
+    const slides = slider.querySelectorAll('.proj-slider__slide');
+    const dotsContainer = slider.querySelector('.proj-slider__dots');
+    const prevBtn = slider.querySelector('.proj-slider__btn--prev');
+    const nextBtn = slider.querySelector('.proj-slider__btn--next');
+    
+    if (!slides.length) return;
+    
+    let current = 0;
+    let autoTimer = null;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'proj-slider__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Slide ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      if (dotsContainer) dotsContainer.appendChild(dot);
+    });
+
+    function getDots() {
+      return dotsContainer ? dotsContainer.querySelectorAll('.proj-slider__dot') : [];
+    }
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      getDots()[current]?.classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      getDots()[current]?.classList.add('active');
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+
+    // Auto-advance every 3.5s
+    function startAuto() {
+      autoTimer = setInterval(next, 3500);
+    }
+    function resetAuto() {
+      clearInterval(autoTimer);
+      startAuto();
+    }
+    startAuto();
+
+    // Pause on hover / touch
+    slider.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    slider.addEventListener('mouseleave', startAuto);
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) {
+        dx < 0 ? next() : prev();
+        resetAuto();
+      }
+    }, { passive: true });
+  });
+}
+document.addEventListener('DOMContentLoaded', initProjectSliders);
