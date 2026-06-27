@@ -96,7 +96,7 @@
           <!-- Stats Row -->
           <div class="hero__stats reveal">
             <div class="hero__stat">
-              <span class="hero__stat-num">2+</span>
+              <span class="hero__stat-num">3+</span>
               <span class="hero__stat-label">Projects<br>Launched</span>
             </div>
             <div class="hero__stat-divider"></div>
@@ -251,8 +251,80 @@
 
         <div class="showcase-grid">
 
-          <!-- ═══ Project 1: 7X Pharma ═══ -->
-          <article class="showcase-card reveal" id="proj-pharma">
+          <!-- ═══ Project 1: 7X Library Manager ═══ -->
+          <article class="showcase-card reveal" id="proj-library">
+            <div class="showcase-card__visual">
+              <div class="showcase-card__glow" style="--hue: 185;"></div>
+
+              <!-- Image Slider -->
+              <div class="proj-slider" id="sliderLib">
+                <div class="proj-slider__track">
+                  <div class="proj-slider__slide active">
+                    <img src="images/7X-LIB-HERO.png" alt="7X Library Manager Dashboard" loading="lazy" />
+                  </div>
+                  <div class="proj-slider__slide">
+                    <img src="images/7X-LIB-POS.png" alt="7X Library POS System" loading="lazy" />
+                  </div>
+                  <div class="proj-slider__slide">
+                    <img src="images/7X-LIB-INVOICE.png" alt="7X Library Invoices" loading="lazy" />
+                  </div>
+                  <div class="proj-slider__slide">
+                    <img src="images/7X-LIB-INVENTORY.png" alt="7X Library Inventory" loading="lazy" />
+                  </div>
+                  <div class="proj-slider__slide">
+                    <img src="images/7X-LIB-REPORTS.png" alt="7X Library Reports" loading="lazy" />
+                  </div>
+                </div>
+                <div class="proj-slider__dots" id="dotsLib"></div>
+                <button class="proj-slider__btn proj-slider__btn--prev" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="proj-slider__btn proj-slider__btn--next" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+
+              <!-- Floating logo badge -->
+              <div class="showcase-card__float-badge">
+                <img src="images/7X-LIB-LOGO.png" alt="7X Library Logo" />
+              </div>
+            </div>
+
+            <div class="showcase-card__content">
+              <div class="showcase-card__meta">
+                <span class="project-num">01</span>
+                <span class="project-tag tertiary"><i class="fa-solid fa-book-open"></i> Library ERP</span>
+              </div>
+              <h3 class="showcase-card__title">7X Library <span class="gradient-text">Manager</span></h3>
+              <p class="showcase-card__desc">A next-generation integrated library management system built with PHP Vanilla &amp; glassmorphism design. Combines POS, professional invoicing, inventory alerts, interactive reports, and multi-role user management — all in one blazing-fast platform.</p>
+
+              <ul class="showcase-card__features">
+                <li><i class="fa-solid fa-check"></i> POS with Barcode Scanner &amp; Thermal Printing</li>
+                <li><i class="fa-solid fa-check"></i> A4 &amp; Thermal Professional Invoices + PDF Export</li>
+                <li><i class="fa-solid fa-check"></i> 5 Interactive Reports with Chart.js</li>
+                <li><i class="fa-solid fa-check"></i> Multi-Role System (Admin / Seller)</li>
+              </ul>
+
+              <div class="showcase-card__tags">
+                <span class="tag"><i class="fa-brands fa-php"></i> PHP Vanilla</span>
+                <span class="tag"><i class="fa-solid fa-database"></i> MySQL PDO</span>
+                <span class="tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="tag"><i class="fa-solid fa-chart-bar"></i> Chart.js</span>
+                <span class="tag"><i class="fa-solid fa-shield-halved"></i> SQL Safe</span>
+              </div>
+
+              <div class="showcase-card__actions">
+                <a href="https://soulayman-7x.github.io/7X-Library-Manager-Landing-Page/" target="_blank" rel="noopener" class="btn btn--primary">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Landing Page
+                </a>
+                <a href="https://github.com/soulayman-7x" target="_blank" class="btn btn--ghost">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://wa.me/212607599716?text=السلام%20عليكم%20%F0%9F%91%8B%0Aأنا%20مهتم%20بمشروع%20*7X%20Library%20Manager*%20وأريد%20معلومات%20أكثر%20عنه." target="_blank" rel="noopener" class="btn btn--whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Inquire
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ═══ Project 2: 7X Pharma ═══ -->
+          <article class="showcase-card showcase-card--reverse reveal" id="proj-pharma">
             <div class="showcase-card__visual">
               <div class="showcase-card__glow" style="--hue: 220;"></div>
               <div class="showcase-card__main-img">
@@ -265,7 +337,7 @@
 
             <div class="showcase-card__content">
               <div class="showcase-card__meta">
-                <span class="project-num">01</span>
+                <span class="project-num">02</span>
                 <span class="project-tag primary"><i class="fa-solid fa-capsules"></i> Healthcare</span>
               </div>
               <h3 class="showcase-card__title">7X Pharma <span class="gradient-text">Nexus</span></h3>
@@ -287,18 +359,21 @@
               </div>
 
               <div class="showcase-card__actions">
-                <a href="https://github.com/soulayman-7x/7X_Pharma_Core"  target="_blank" class="btn btn--primary">
+                <a href="https://github.com/soulayman-7x/7X_Pharma_Core" target="_blank" class="btn btn--primary">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Preview
                 </a>
-                <a href="https://github.com/soulayman-7x/7X_Pharma_Core"  target="_blank" class="btn btn--ghost">
+                <a href="https://github.com/soulayman-7x/7X_Pharma_Core" target="_blank" class="btn btn--ghost">
                   <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://wa.me/212607599716?text=السلام%20عليكم%20%F0%9F%91%8B%0Aأنا%20مهتم%20بمشروع%20*7X%20Pharma%20Nexus*%20وأريد%20معلومات%20أكثر%20عنه." target="_blank" rel="noopener" class="btn btn--whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Inquire
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- ═══ Project 2: 7X Hub ═══ -->
-          <article class="showcase-card showcase-card--reverse reveal" id="proj-hub">
+          <!-- ═══ Project 3: 7X Hub ═══ -->
+          <article class="showcase-card reveal" id="proj-hub">
             <div class="showcase-card__visual">
               <div class="showcase-card__glow" style="--hue: 270;"></div>
               <div class="showcase-card__main-img">
@@ -311,7 +386,7 @@
 
             <div class="showcase-card__content">
               <div class="showcase-card__meta">
-                <span class="project-num">02</span>
+                <span class="project-num">03</span>
                 <span class="project-tag secondary"><i class="fa-solid fa-blog"></i> Blog Platform</span>
               </div>
               <h3 class="showcase-card__title">7X <span class="gradient-text">Hub</span></h3>
@@ -329,7 +404,6 @@
                 <span class="tag"><i class="fa-brands fa-php"></i> PHP OOP</span>
                 <span class="tag"><i class="fa-solid fa-database"></i> MySQL</span>
                 <span class="tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-
               </div>
 
               <div class="showcase-card__actions">
@@ -338,6 +412,9 @@
                 </a>
                 <a href="https://github.com/soulayman-7x/7X_Hub_Blog" target="_blank" class="btn btn--ghost">
                   <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://wa.me/212607599716?text=السلام%20عليكم%20%F0%9F%91%8B%0Aأنا%20مهتم%20بمشروع%20*7X%20Hub%20Blog*%20وأريد%20معلومات%20أكثر%20عنه." target="_blank" rel="noopener" class="btn btn--whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Inquire
                 </a>
               </div>
             </div>
@@ -362,70 +439,89 @@
     <section id="contact" class="contact section">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__tag"><i class="fa-solid fa-envelope-open-text"></i> Contact</span>
-          <h2 class="section__title">Let's <span class="gradient-text">Connect</span></h2>
-          <p class="section__desc">Have a project in mind? Let's build something great together.</p>
+          <span class="section__tag"><i class="fa-brands fa-whatsapp"></i> Let's Talk</span>
+          <h2 class="section__title">Ready to <span class="gradient-text">Build?</span></h2>
+          <p class="section__desc">Got a project idea? Let's turn it into reality — fast.</p>
         </div>
 
-        <div class="contact__wrapper reveal">
-          <div class="contact__info">
-            <div class="contact__item">
-              <span class="contact__item-icon"><i class="fa-solid fa-envelope"></i></span>
-              <div>
-                <p class="contact__item-label">Email</p>
-                <a href="mailto:soulaymanidbaha444@gmail.com"
-                  class="contact__item-value">soulaymanidbaha444@gmail.com</a>
+        <div class="contact__wa-layout reveal">
+
+          <!-- Left: Info cards -->
+          <div class="contact__info-col">
+
+            <div class="contact__info-card">
+              <div class="contact__item">
+                <span class="contact__item-icon"><i class="fa-solid fa-envelope"></i></span>
+                <div>
+                  <p class="contact__item-label">Email</p>
+                  <a href="mailto:soulaymanidbaha444@gmail.com" class="contact__item-value">soulaymanidbaha444@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact__item">
+                <span class="contact__item-icon"><i class="fa-brands fa-github"></i></span>
+                <div>
+                  <p class="contact__item-label">GitHub</p>
+                  <a href="https://github.com/soulayman-7x" target="_blank" rel="noopener" class="contact__item-value">github.com/soulayman-7x</a>
+                </div>
+              </div>
+              <div class="contact__item">
+                <span class="contact__item-icon"><i class="fa-solid fa-location-dot"></i></span>
+                <div>
+                  <p class="contact__item-label">Location</p>
+                  <span class="contact__item-value">Morocco 🇲🇦</span>
+                </div>
+              </div>
+              <div class="contact__availability">
+                <span class="availability-dot"></span>
+                <i class="fa-solid fa-circle-check" style="color:#22c55e;font-size:0.8rem;"></i>
+                Available for freelance &amp; collaborations
               </div>
             </div>
-            <div class="contact__item">
-              <span class="contact__item-icon"><i class="fa-brands fa-github"></i></span>
-              <div>
-                <p class="contact__item-label">GitHub</p>
-                <a href="https://github.com/soulayman-7x" target="_blank" rel="noopener"
-                  class="contact__item-value">github.com/soulayman-7x</a>
-              </div>
-            </div>
-            <div class="contact__item">
-              <span class="contact__item-icon"><i class="fa-solid fa-location-dot"></i></span>
-              <div>
-                <p class="contact__item-label">Location</p>
-                <span class="contact__item-value">Morocco 🇲🇦</span>
-              </div>
-            </div>
-            <div class="contact__availability">
-              <span class="availability-dot"></span>
-              <i class="fa-solid fa-circle-check" style="color:#22c55e;font-size:0.8rem;"></i>
-              Available for freelance &amp; collaborations
-            </div>
+
           </div>
 
-          <form class="contact__form" id="contactForm" novalidate>
-            <div class="form-group">
-              <input type="text" id="nameInput" class="form-input" placeholder=" " autocomplete="name" required />
-              <label for="nameInput" class="form-label"><i class="fa-solid fa-user"></i> Your Name</label>
-              <span class="form-border"></span>
+          <!-- Right: WhatsApp CTA -->
+          <div class="contact__wa-col">
+
+            <div class="contact__wa-card">
+              <div class="wa-card__glow"></div>
+
+              <div class="wa-card__icon-wrap">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div class="wa-card__icon-ring"></div>
+              </div>
+
+              <h3 class="wa-card__title">Let's Chat on <span class="wa-text">WhatsApp</span></h3>
+
+              <div class="wa-card__perks">
+                <div class="wa-perk">
+                  <i class="fa-solid fa-bolt"></i>
+                  <span>Fast response — usually within minutes</span>
+                </div>
+                <div class="wa-perk">
+                  <i class="fa-solid fa-comments"></i>
+                  <span>Discuss your idea directly, no forms</span>
+                </div>
+                <div class="wa-perk">
+                  <i class="fa-solid fa-file-code"></i>
+                  <span>Get a free estimate for your project</span>
+                </div>
+                <div class="wa-perk">
+                  <i class="fa-solid fa-handshake"></i>
+                  <span>100% custom — built exactly how you want it</span>
+                </div>
+              </div>
+
+              <a href="https://wa.me/212607599716?text=السلام%20عليكم%20%F0%9F%91%8B%0Aأنا%20مهتم%20بخدماتك%20وأريد%20مناقشة%20مشروعي%20معك." target="_blank" rel="noopener" class="btn btn--wa-main" id="waMainBtn">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Start a Conversation</span>
+                <div class="btn__shine"></div>
+              </a>
+
+              <p class="wa-card__note"><i class="fa-solid fa-lock"></i> Your privacy is respected. No spam, ever.</p>
             </div>
-            <div class="form-group">
-              <input type="email" id="emailInput" class="form-input" placeholder=" " autocomplete="email" required />
-              <label for="emailInput" class="form-label"><i class="fa-solid fa-at"></i> Email Address</label>
-              <span class="form-border"></span>
-            </div>
-            <div class="form-group">
-              <input type="text" id="subjectInput" class="form-input" placeholder=" " required />
-              <label for="subjectInput" class="form-label"><i class="fa-solid fa-tag"></i> Subject</label>
-              <span class="form-border"></span>
-            </div>
-            <div class="form-group">
-              <textarea id="messageInput" class="form-input form-textarea" placeholder=" " rows="4" required></textarea>
-              <label for="messageInput" class="form-label"><i class="fa-solid fa-message"></i> Message</label>
-              <span class="form-border"></span>
-            </div>
-            <button type="submit" class="btn btn--primary btn--magnetic" id="submitBtn">
-              <span class="btn__text">Send Message</span>
-              <i class="fa-solid fa-paper-plane btn__icon"></i>
-            </button>
-            <p class="form-success" id="formSuccess" aria-live="polite"></p>
-          </form>
+
+          </div>
         </div>
       </div>
     </section>
@@ -475,6 +571,13 @@
       <span class="bottom-nav__label">Contact</span>
     </a>
   </nav>
+
+  <!-- ═══ FLOATING WHATSAPP BUTTON ═══ -->
+  <a href="https://wa.me/212607599716?text=السلام%20عليكم%20%F0%9F%91%8B%0Aأنا%20مهتم%20بخدماتك%20وأريد%20التحدث%20معك." target="_blank" rel="noopener" class="wa-float" id="waFloat" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="wa-float__pulse"></span>
+    <span class="wa-float__tooltip">Chat on WhatsApp</span>
+  </a>
 
   <script src="script.js"></script>
 </body>
