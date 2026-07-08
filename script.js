@@ -14,15 +14,92 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initTypewriter();
   initBottomNav();
+  initHeroCardTilt();
+  initStatCounters();
 });
 
-/* ── 1. STICKY HEADER ──────────────────────────────────────── */
+/* ── 1. STICKY HEADER + SLIDING NAV INDICATOR ─────────────── */
 function initHeader() {
   const header = document.getElementById('header');
+  const slider = document.getElementById('navSlider');
+  const navLinks = document.querySelectorAll('.nav__island-inner .nav__link');
+  const sections = ['stack', 'services', 'projects', 'contact'];
 
-  // Glassmorphism on scroll only — mobile nav replaced by bottom-nav
+  // Glassmorphism on scroll
   window.addEventListener('scroll', () => {
     header.classList.toggle('header--scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Move slider to a specific link
+  function moveSlider(link) {
+    if (!slider || !link) return;
+    const parent = link.parentElement;
+    const parentRect = parent.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+
+    slider.style.left = (linkRect.left - parentRect.left) + 'px';
+    slider.style.width = linkRect.width + 'px';
+    slider.classList.add('visible');
+  }
+
+  // Clear slider
+  function hideSlider() {
+    if (!slider) return;
+    slider.classList.remove('visible');
+  }
+
+  // Track active section
+  let activeLink = null;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          const isActive = link.getAttribute('data-section') === id;
+          link.classList.toggle('active', isActive);
+          if (isActive) {
+            activeLink = link;
+            moveSlider(link);
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // Initially hide slider (no section in view at top)
+  if (slider) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < 200) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        hideSlider();
+        activeLink = null;
+      }
+    }, { passive: true });
+  }
+
+  // Hover effect: temporarily move slider, return on leave
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      moveSlider(link);
+    });
+    link.addEventListener('mouseleave', () => {
+      if (activeLink) {
+        moveSlider(activeLink);
+      } else {
+        hideSlider();
+      }
+    });
+  });
+
+  // Recalculate on resize
+  window.addEventListener('resize', () => {
+    if (activeLink) moveSlider(activeLink);
   }, { passive: true });
 }
 
@@ -182,22 +259,7 @@ function initForm() {
 
 /* ── 7. SKILL BARS ─────────────────────────────────────────── */
 function initSkillBars() {
-  const bars = document.querySelectorAll('.skill-bar__fill');
-  if (!bars.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.width = entry.target.style.getPropertyValue('--pct') || '0%';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  bars.forEach(bar => {
-    bar.style.width = '0%';
-    observer.observe(bar);
-  });
+  // Stack chips — no progress bars to animate
 }
 
 /* ── 8. SMOOTH SCROLL ──────────────────────────────────────── */
@@ -268,7 +330,7 @@ function initBottomNav() {
   if (!nav) return;
 
   const items = nav.querySelectorAll('.bottom-nav__item');
-  const sections = ['hero', 'stack', 'projects', 'contact'];
+  const sections = ['hero', 'stack', 'services', 'projects', 'contact'];
 
   // Set active item based on which section is in view
   const observer = new IntersectionObserver((entries) => {
@@ -395,3 +457,98 @@ function initProjectSliders() {
   });
 }
 document.addEventListener('DOMContentLoaded', initProjectSliders);
+
+// ═══════════════════════ SERVICE CARDS 3D TILT ═══════════════════════
+function initServiceCards() {
+  const cards = document.querySelectorAll('.svc-card');
+  
+  cards.forEach(card => {
+    const inner = card.querySelector('.svc-card__inner');
+    if (!inner) return;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+      
+      inner.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      inner.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
+      inner.style.transition = 'transform 0.5s ease';
+      setTimeout(() => { inner.style.transition = ''; }, 500);
+    });
+
+    card.addEventListener('mouseenter', () => {
+      inner.style.transition = 'none';
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', initServiceCards);
+
+// ═══════════════════════ HERO CARD 3D TILT ═══════════════════════
+function initHeroCardTilt() {
+  const wrap = document.getElementById('heroCard');
+  if (!wrap) return;
+  const card = wrap.querySelector('.hero__visual-card');
+  if (!card) return;
+
+  wrap.addEventListener('mousemove', (e) => {
+    const rect = wrap.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+
+    const rotateX = ((y - cy) / cy) * -8;
+    const rotateY = ((x - cx) / cx) * 8;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    card.style.transition = 'none';
+  });
+
+  wrap.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    card.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+  });
+}
+
+// ═══════════════════════ STAT COUNTER ANIMATION ═══════════════════════
+function initStatCounters() {
+  const nums = document.querySelectorAll('.hero__stat-num[data-target]');
+  if (!nums.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-target'));
+        const duration = 1600;
+        const start = performance.now();
+
+        function animate(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased);
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            el.textContent = target;
+          }
+        }
+        requestAnimationFrame(animate);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  nums.forEach(num => observer.observe(num));
+}
